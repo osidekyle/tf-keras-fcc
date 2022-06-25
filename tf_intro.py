@@ -31,5 +31,11 @@ model.fit(train_images, train_labels, epochs=10)
 # print("Tested Acc:", test_acc)
 
 prediction = model.predict(np.array(test_images))
-print(prediction[0])
+
+for i in range(5):
+    plt.grid(False)
+    plt.imshow(test_images[i], cmap=plt.cm.binary)
+    plt.xlabel("Actual: " + class_names[test_labels[i]])
+    plt.title("Prediction: " + class_names[np.argmax(prediction[i])])
+    plt.show()
 
